@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "what-to-draw-client": {
+      "tags": []
+    },
+    "what-to-draw-client-e2e": {
+      "tags": []
+    }
+  }
 }

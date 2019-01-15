@@ -2,7 +2,125 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "what-to-draw-client": {
+      "root": "apps/what-to-draw-client/",
+      "sourceRoot": "apps/what-to-draw-client/src",
+      "projectType": "application",
+      "prefix": "what-to-draw",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/what-to-draw-client",
+            "index": "apps/what-to-draw-client/src/index.html",
+            "main": "apps/what-to-draw-client/src/main.ts",
+            "polyfills": "apps/what-to-draw-client/src/polyfills.ts",
+            "tsConfig": "apps/what-to-draw-client/tsconfig.app.json",
+            "assets": [
+              "apps/what-to-draw-client/src/favicon.ico",
+              "apps/what-to-draw-client/src/assets"
+            ],
+            "styles": ["apps/what-to-draw-client/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/what-to-draw-client/src/environments/environment.ts",
+                  "with": "apps/what-to-draw-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "what-to-draw-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "what-to-draw-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "what-to-draw-client:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/what-to-draw-client/tsconfig.app.json",
+              "apps/what-to-draw-client/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/what-to-draw-client/jest.config.js",
+            "tsConfig": "apps/what-to-draw-client/tsconfig.spec.json",
+            "setupFile": "apps/what-to-draw-client/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "what-to-draw-client-e2e": {
+      "root": "apps/what-to-draw-client-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/what-to-draw-client-e2e/cypress.json",
+            "tsConfig": "apps/what-to-draw-client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "what-to-draw-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "what-to-draw-client:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/what-to-draw-client-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -18,5 +136,6 @@
     "@nrwl/schematics:library": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "what-to-draw-client"
 }
