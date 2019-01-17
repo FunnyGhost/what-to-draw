@@ -15,7 +15,7 @@ before_script:
 script:
   - ng build --prod
   - yarn test
-  - yarn e2e
+  - yarn e2e:ci
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
