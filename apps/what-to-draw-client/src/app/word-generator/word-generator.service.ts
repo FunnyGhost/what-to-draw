@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WordTypes } from './word-types';
 import { WordsApiResponse } from './words-api-response';
-import adjectives from './words-data/adjectives.json';
-import nouns from './words-data/nouns.json';
+import AdjectivesSet from './words-data/adjectives.json';
+import NounsSet from './words-data/nouns.json';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class WordGeneratorService {
   readonly adjectives: string[];
 
   constructor(private httpClient: HttpClient) {
-    this.nouns = nouns.words;
-    this.adjectives = adjectives.words;
+    this.nouns = NounsSet.words;
+    this.adjectives = AdjectivesSet.words;
   }
 
   getWord(wordType: WordTypes): string {
@@ -38,11 +38,10 @@ export class WordGeneratorService {
     const httpOptions = {
       headers: new HttpHeaders({
         'X-RapidAPI-Key': 'U8qlAjB1fjmshqcC482nlfEH4K09p18VbmxjsnmejHA6ZHPvtr'
-      }),
-      params: new HttpParams().set('word', word)
+      })
     };
     return this.httpClient.get<WordsApiResponse>(
-      'https://wordsapiv1.p.rapidapi.com/words/',
+      `https://wordsapiv1.p.rapidapi.com/words/${word}`,
       httpOptions
     );
   }
