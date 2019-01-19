@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NxModule } from '@nrwl/nx';
 import { AppComponent } from './app.component';
+import { InteractiveWordComponent } from './interactive-word/interactive-word.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, InteractiveWordComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
