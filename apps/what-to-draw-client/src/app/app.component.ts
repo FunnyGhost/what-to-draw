@@ -39,6 +39,22 @@ export class AppComponent implements OnInit {
     ];
   }
 
+  public onRefreshAdjective(adjectiveToRefresh: string): void {
+    const newAdjective = this.wordGenerator.getWord(WordTypes.Adjective);
+    this.adjectives = this.adjectives.map((word: string) => {
+      if (word === adjectiveToRefresh) {
+        return newAdjective;
+      }
+      return word;
+    });
+  }
+
+  public onRemoveAdjective(adjectiveToRemove: string): void {
+    this.adjectives = this.adjectives.filter(
+      (word: string) => word !== adjectiveToRemove
+    );
+  }
+
   private initAdjectives(): void {
     this.adjectives = [this.wordGenerator.getWord(WordTypes.Adjective)];
   }

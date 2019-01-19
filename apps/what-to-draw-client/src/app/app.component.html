@@ -2,19 +2,43 @@
   <div class="sentence">
     Draw {{ article }}
     <span class="adjective" *ngFor="let adjective of adjectives; let i = index">
-      <ng-container *ngIf="i === 0"> {{ adjective }} </ng-container>
+      <ng-container *ngIf="i === 0">
+        <what-to-draw-interactive-word
+          [word]="adjective"
+          (refreshWord)="onRefreshAdjective($event)"
+          (removeWord)="onRemoveAdjective($event)"
+          >{{ adjective }}</what-to-draw-interactive-word
+        ></ng-container
+      >
       <ng-container *ngIf="0 < i && i < adjectives.length - 1"
-        >, {{ adjective }}
+        ><what-to-draw-interactive-word
+          [word]="adjective"
+          (refreshWord)="onRefreshAdjective($event)"
+          (removeWord)="onRemoveAdjective($event)"
+          >, {{ adjective }}</what-to-draw-interactive-word
+        >
       </ng-container>
 
-      <ng-container
-        *ngIf="i === adjectives.length - 1 && adjectives.length > 1"
+      <ng-container *ngIf="i === adjectives.length - 1 && adjectives.length > 1"
+        ><what-to-draw-interactive-word
+          [word]="adjective"
+          (refreshWord)="onRefreshAdjective($event)"
+          (removeWord)="onRemoveAdjective($event)"
+          >and {{ adjective }}</what-to-draw-interactive-word
+        ></ng-container
       >
-        and {{ adjective }}
-      </ng-container>
     </span>
+    <button class="add-button" (click)="addAdjective()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path fill="none" d="M0 0h24v24H0V0z" />
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+    </button>
     {{ nouns[0] }}
   </div>
-
-  <button (click)="addAdjective()">Add Adjective</button>
 </div>
