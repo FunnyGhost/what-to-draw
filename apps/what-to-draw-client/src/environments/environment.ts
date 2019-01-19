@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  wordsApiEndpoint: 'https://wordsapiv1.p.rapidapi.com/words',
+  wordsApiHeaderName: 'X-RapidAPI-Key',
+  wordsApiHeaderValue: 'U8qlAjB1fjmshqcC482nlfEH4K09p18VbmxjsnmejHA6ZHPvtr'
 };
 
 /*
