@@ -10,23 +10,8 @@ import { WordTypes } from './word-generator/word-types';
 })
 export class AppComponent implements OnInit {
   public nouns: string[] = [];
-  public get adjectivesChain(): string {
-    if (this.adjectives.length === 1) {
-      return this.adjectives[0];
-    } else {
-      let chain = this.adjectives[0];
-      for (let index = 1; index < this.adjectives.length; index++) {
-        const adjective = this.adjectives[index];
-        if (index === this.adjectives.length - 1) {
-          chain += ` and ${adjective}`;
-        } else {
-          chain += `, ${adjective}`;
-        }
-      }
+  public adjectives: string[] = [];
 
-      return chain;
-    }
-  }
   public get article(): 'a' | 'an' | '' {
     if (this.adjectives.length > 0) {
       const firstLetter = this.adjectives[0].substring(0, 1);
@@ -38,7 +23,6 @@ export class AppComponent implements OnInit {
     return '';
   }
 
-  private adjectives: string[] = [];
   private readonly vowels = ['a', 'e', 'i', 'o', 'u'];
 
   constructor(private wordGenerator: WordGeneratorService) {}

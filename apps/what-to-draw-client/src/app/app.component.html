@@ -1,3 +1,20 @@
-<div>Draw {{ article }} {{ adjectivesChain }} {{ nouns[0] }}</div>
+<div class="container">
+  <div class="sentence">
+    Draw {{ article }}
+    <span class="adjective" *ngFor="let adjective of adjectives; let i = index">
+      <ng-container *ngIf="i === 0"> {{ adjective }} </ng-container>
+      <ng-container *ngIf="0 < i && i < adjectives.length - 1"
+        >, {{ adjective }}
+      </ng-container>
 
-<button (click)="addAdjective()">Add Adjective</button>
+      <ng-container
+        *ngIf="i === adjectives.length - 1 && adjectives.length > 1"
+      >
+        and {{ adjective }}
+      </ng-container>
+    </span>
+    {{ nouns[0] }}
+  </div>
+
+  <button (click)="addAdjective()">Add Adjective</button>
+</div>
