@@ -1,12 +1,9 @@
-export interface WordsApiQueryResult {
+export interface Definition {
   definition: string;
   partOfSpeech: string;
-  synonyms: string[];
-  typeOf: string[];
-  hasParts: string[];
 }
 
 export interface WordsApiResponse {
   word: string;
-  results: WordsApiQueryResult[];
+  definitions: Definition[];
 }
