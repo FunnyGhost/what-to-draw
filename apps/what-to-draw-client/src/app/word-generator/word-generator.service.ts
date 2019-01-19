@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { WordTypes } from './word-types';
 import { WordsApiResponse } from './words-api-response';
 import AdjectivesSet from './words-data/adjectives.json';
@@ -37,11 +38,11 @@ export class WordGeneratorService {
   getWordDetails(word: string): Observable<WordsApiResponse> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'X-RapidAPI-Key': 'U8qlAjB1fjmshqcC482nlfEH4K09p18VbmxjsnmejHA6ZHPvtr'
+        [environment.wordsApiHeaderName]: environment.wordsApiHeaderValue
       })
     };
     return this.httpClient.get<WordsApiResponse>(
-      `https://wordsapiv1.p.rapidapi.com/words/${word}`,
+      `${environment.wordsApiEndpoint}/${word}/definitions`,
       httpOptions
     );
   }
