@@ -1,17 +1,17 @@
-<ng-container *ngIf="index === 0">
+<ng-container *ngIf="index < numberOfAdjectives - 1 && numberOfAdjectives > 1">
+  <what-to-draw-interactive-word
+    [word]="adjective"
+    (refreshWord)="onRefreshAdjective($event)"
+    (removeWord)="onRemoveAdjective($event)"
+    >{{ adjective }},
+  </what-to-draw-interactive-word>
+</ng-container>
+<ng-container *ngIf="numberOfAdjectives === 1">
   <what-to-draw-interactive-word
     [word]="adjective"
     (refreshWord)="onRefreshAdjective($event)"
     (removeWord)="onRemoveAdjective($event)"
     >{{ adjective }}</what-to-draw-interactive-word
-  >
-</ng-container>
-<ng-container *ngIf="0 < index && index < numberOfAdjectives - 1">
-  <what-to-draw-interactive-word
-    [word]="adjective"
-    (refreshWord)="onRefreshAdjective($event)"
-    (removeWord)="onRemoveAdjective($event)"
-    >, {{ adjective }}</what-to-draw-interactive-word
   >
 </ng-container>
 
