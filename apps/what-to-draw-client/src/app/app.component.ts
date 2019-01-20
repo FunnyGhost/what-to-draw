@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { fade, slide } from './animations';
+import { bounce, fade, slide } from './animations';
 import { WordGeneratorService } from './word-generator/word-generator.service';
 import { WordTypes } from './word-generator/word-types';
 
@@ -7,7 +7,7 @@ import { WordTypes } from './word-generator/word-types';
   selector: 'what-to-draw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slide, fade],
+  animations: [slide, fade, bounce],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
