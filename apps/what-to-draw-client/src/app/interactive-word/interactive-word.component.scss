@@ -20,11 +20,11 @@
     }
 
     svg {
-      fill: forestgreen;
+      fill: slateblue;
       transition: fill 0.3s;
 
       &:hover {
-        fill: darkgreen;
+        fill: darkslateblue;
       }
     }
   }
