@@ -1,5 +1,11 @@
-<div class="pill">
-  <button (click)="onRemove()">
+<div
+  class="pill"
+  [ngClass]="{
+    adjective: displayMode === 'Adjective',
+    noun: displayMode === 'Noun'
+  }"
+>
+  <button (click)="onRemove()" *ngIf="displayMode === 'Adjective'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"

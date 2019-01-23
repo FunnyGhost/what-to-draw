@@ -6,6 +6,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
+import { WordDisplayMode } from './word-display-mode';
 
 @Component({
   selector: 'what-to-draw-interactive-word',
@@ -15,6 +16,7 @@ import {
 })
 export class InteractiveWordComponent implements OnInit {
   @Input() word: string;
+  @Input() displayMode: WordDisplayMode;
   @Output() refreshWord = new EventEmitter<string>();
   @Output() removeWord = new EventEmitter<string>();
 

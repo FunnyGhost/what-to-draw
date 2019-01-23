@@ -1,9 +1,17 @@
 .pill {
-  background-color: yellowgreen;
   border-radius: 400px;
   display: inline;
   padding: 0.2rem;
   margin: 0.2rem;
+
+  &.adjective {
+    background-color: yellowgreen;
+  }
+
+  &.noun {
+    border: 1px solid darkslateblue;
+    padding-left: 1.5rem;
+  }
 
   button {
     background: none;
