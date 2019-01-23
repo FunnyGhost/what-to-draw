@@ -1,6 +1,7 @@
 <ng-container *ngIf="index < numberOfAdjectives - 1 && numberOfAdjectives > 1">
   <what-to-draw-interactive-word
     [word]="adjective"
+    [displayMode]="'Adjective'"
     (refreshWord)="onRefreshAdjective($event)"
     (removeWord)="onRemoveAdjective($event)"
     >{{ adjective }},
@@ -9,6 +10,7 @@
 <ng-container *ngIf="numberOfAdjectives === 1">
   <what-to-draw-interactive-word
     [word]="adjective"
+    [displayMode]="'Adjective'"
     (refreshWord)="onRefreshAdjective($event)"
     (removeWord)="onRemoveAdjective($event)"
     >{{ adjective }}</what-to-draw-interactive-word
@@ -20,6 +22,7 @@
 >
   <what-to-draw-interactive-word
     [word]="adjective"
+    [displayMode]="'Adjective'"
     (refreshWord)="onRefreshAdjective($event)"
     (removeWord)="onRemoveAdjective($event)"
     >and {{ adjective }}</what-to-draw-interactive-word
