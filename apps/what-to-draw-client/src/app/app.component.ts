@@ -57,6 +57,16 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public onRefreshNoun(nounToRefresh: string): void {
+    const newNoun = this.wordGenerator.getWord(WordTypes.Noun);
+    this.nouns = this.nouns.map((word: string) => {
+      if (word === nounToRefresh) {
+        return newNoun;
+      }
+      return word;
+    });
+  }
+
   private initAdjectives(): void {
     this.adjectives = [this.wordGenerator.getWord(WordTypes.Adjective)];
   }

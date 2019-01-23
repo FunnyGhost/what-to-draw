@@ -25,6 +25,13 @@
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
       </svg>
     </button>
-    <span>{{ nouns[0] }}</span>
+    <span class="noun" *ngFor="let noun of nouns; let i = index" @bounce
+      ><what-to-draw-interactive-word
+        [word]="noun"
+        [displayMode]="'Noun'"
+        (refreshWord)="onRefreshNoun($event)"
+        >{{ noun }}</what-to-draw-interactive-word
+      ></span
+    >
   </div>
 </div>
