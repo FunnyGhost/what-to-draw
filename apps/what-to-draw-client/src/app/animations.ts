@@ -27,7 +27,7 @@ export let slide = trigger('slide', [
 export let bounce = trigger('bounce', [
   transition(':enter', [
     animate(
-      '0.5s cubic-bezier(0.215, 0.61, 0.355, 1)',
+      '0.3s cubic-bezier(0.215, 0.61, 0.355, 1)',
       keyframes([
         style({
           offset: 0,
@@ -57,7 +57,7 @@ export let bounce = trigger('bounce', [
 
   transition(':leave', [
     animate(
-      '0.5s ease-in',
+      '0.3s ease-in',
       keyframes([
         style({
           offset: 0.2,
