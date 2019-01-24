@@ -1,11 +1,13 @@
 {
   "name": "what-to-draw-client",
   "short_name": "what-to-draw-client",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "description": "Ideas for drawing",
+  "orientation": "any",
+  "theme_color": "#d38312",
+  "background_color": "#a83279",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "https://what-to-draw.net/",
   "icons": [
     {
       "src": "/assets/android-icon-36x36.png",
