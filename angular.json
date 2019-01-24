@@ -24,9 +24,12 @@
             "tsConfig": "apps/what-to-draw-client/tsconfig.app.json",
             "assets": [
               "apps/what-to-draw-client/src/favicon.ico",
-              "apps/what-to-draw-client/src/assets"
+              "apps/what-to-draw-client/src/assets",
+              "apps/what-to-draw-client/src/manifest.json"
             ],
-            "styles": ["apps/what-to-draw-client/src/styles.scss"],
+            "styles": [
+              "apps/what-to-draw-client/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -52,7 +55,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },
@@ -80,7 +84,9 @@
               "apps/what-to-draw-client/tsconfig.app.json",
               "apps/what-to-draw-client/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -115,7 +121,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/what-to-draw-client-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

@@ -7,6 +7,8 @@ import { NxModule } from '@nrwl/nx';
 import { AppComponent } from './app.component';
 import { InteractiveWordComponent } from './interactive-word/interactive-word.component';
 import { AdjectiveComponent } from './adjective/adjective.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, InteractiveWordComponent, AdjectiveComponent],
@@ -15,7 +17,8 @@ import { AdjectiveComponent } from './adjective/adjective.component';
     BrowserAnimationsModule,
     HttpClientModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' })
+    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
